@@ -1,0 +1,106 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+header,
+main,
+section,
+footer {
+    display: block;
+}
+body {
+    font-family: 'Bree Serif', sans-serif;
+    background: #00CED1;
+    min-height: 100%;
+    background: -webkit-linear-gradient(0deg, #87CEFA, #00BFFF, #00CED1);
+    background: -moz-linear-gradient(-90deg, #87CEFA, #00BFFF, #00CED1);
+    background: -o-linear-gradient(-90deg, #87CEFA, #00BFFF, #00CED1);
+    background: linear-gradient(-90deg, #87CEFA, #00BFFF, #00CED1);
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a:visited {
+    color: gray;
+}
+a:hover, a:focus {
+    text-decoration: none;
+}
+a:active {
+    font-weight: bold;
+}
+#container {
+    min-height: 100%;
+    position: relative;
+}
+#body {
+    padding: 1% 4%;
+}
+section.sectionI {
+    border: black solid 1px;
+    margin: 10% 35%;
+    padding: 2%;
+}
+/*#loginForm {
+    padding: 10px;
+}*/
+#login-title {
+    font-size: 200%;
+}
+#loginForm .username,
+#loginForm .password {
+    width: 100%;
+    margin: 0;
+    padding: 1%;
+}
+#loginForm .buttons {
+    margin: 0;
+    padding: 1%;
+}
+#loginForm .buttons #login-button,
+#loginForm .buttons #register-button {
+    padding: 2%;
+    width: 30%;
+    border-radius: 3% 30%;
+    background-color: #7E7E7E;
+    -webkit-box-shadow: 9px 9px 14px 0px rgba(0, 0, 0, 0.47);
+    -moz-box-shadow: 9px 9px 14px 0px rgba(0, 0, 0, 0.47);
+    box-shadow: 9px 9px 14px 0px rgba(0, 0, 0, 0.47);
+}
+#loginForm .buttons #register-button {
+    float: right;
+}
+#footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    line-height: 500%;
+    background: #6cf;
+    color: black;
+    border-top: dodgerblue solid 1px;
+}
+#footer #footerSpanLeft {
+    padding-left: 2%;
+}
+#footer #footerSpanRight {
+    padding-right: 2%;
+    float: right;
+}
+
+/*Adding hover effect on butons*/
+#loginForm .buttons #login-button:hover,
+#loginForm .buttons #register-button:hover {
+    color: #ffffff;
+}
+
+/*Adding focus effect on input elements*/
+input:focus {
+    background-color: rgba(255, 255, 255, 0.21);
+}
+
