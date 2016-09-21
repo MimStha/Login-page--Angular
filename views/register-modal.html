@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h1>Signup</h1>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <form class="form-group registerForm" ng-submit="registerNewUser()">
+            <div class="col-xs-6 col-sm-6">
+                <label>Full Name: </label>
+                <input type="text" class="form-control" ng-model="signup.fullName" name="uName" required="">
+            </div>
+            <div class="col-xs-6 col-sm-6">
+                <label>Email: </label>
+                <input type="email" class="form-control" ng-model="signup.email" name="uPassword" required="">
+            </div>
+            <div class="clearfix hidden-sm-up"></div>
+            <div class="col-xs-6 col-sm-6">
+                <label>Password: </label>
+                <input type="text" class="form-control" ng-model="signup.password" name="uEmail" required="">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" value="Cancel" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" type="submit" value="Submit" ng-click="newUser()">Signup</button>
+</div>

@@ -1,0 +1,49 @@
+<div id="header-container">
+</div>
+<!-- end header container -->
+
+<div id="main-container">
+    <section class="sectionI">
+        <form novalidate name="loginForm" id="loginForm" class="form-group">
+            <div class="title">
+                <h1 id="login-title">Login</h1>
+            </div>
+
+            <!-- USERNAME -->
+            <div class="username" ng-class="{ 'has-error': loginForm.uName.$dirty && loginForm.uName.$error.required }">
+                <div class="input-group">
+                    <!-- ICON -->
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </div>
+                    <input class="form-control" id="userName" type="text" placeholder="Username" ng-model="user.name" name="uName" required="" />
+                </div>
+                <span ng-show="loginForm.uName.$dirty && loginForm.uName.$error.required" class="help-block">Username is required</span>
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="password" ng-class="{ 'has-error': loginForm.uPassword.$dirty && loginForm.uPassword.$error.required }">
+                <div class="input-group">
+                    <!-- ICON -->
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-lock"></span>
+                    </div>
+                    <input class="form-control" id="password" type="text" placeholder="Password" ng-model="user.password" name="uPassword" required="" />
+                </div>
+                <span ng-show="loginForm.uPassword.$dirty && loginForm.uPassword.$error.required" class="help-block">Password is required</span>
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="buttons">
+                <button type="submit" id="login-button" ng-disabled="loginForm.$invalid" ng-click="login(user)">Login</button>
+                <button type="submit" id="register-button" ng-click="signup()">Signup</button>
+            </div>
+        </form>
+        <div uib-alert ng-repeat="alert in alerts" ng-class=" 'alert-' + ( '{{alert.type}}' || 'warning') " ng-if="show " dismiss-on-timeout="3000" close="closeAlert($index)">{{alert.msg}}</div>
+    </section>
+    <!-- <pre>User: {{ user | json}}</pre> -->
+    <!-- <pre>Master: {{ master | json}}</pre> -->
+    <!-- <pre>{{ loginForm.uName.$valid | json}}</pre> -->
+    <!-- <pre>{{ loginForm| json}}</pre> -->
+</div>
+<!-- end main container -->
