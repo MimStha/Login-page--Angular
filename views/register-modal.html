@@ -3,20 +3,49 @@
 </div>
 <div class="modal-body">
     <div class="row">
-        <form class="form-group registerForm" ng-submit="registerNewUser()">
-            <div class="col-xs-6 col-sm-6">
+        <form novalidate name="myForm" class="form-group registerForm" ng-submit="registerNewUser()">
+            <div class="col-xs-6 col-sm-6" ng-class="{ 'has-error': myForm.name.$dirty && myForm.name.$error.required }">
                 <label>Full Name: </label>
-                <input type="text" class="form-control" ng-model="signup.fullName" name="uName" required="">
+                <input type="text" class="form-control" ng-model="signup.fullName" name="name" ng-model-options="{updateOn:'blur'}" required />
+                <span ng-show="myForm.name.$error.required && myForm.name.$dirty">It would be nice to know your good name.</span>
             </div>
-            <div class="col-xs-6 col-sm-6">
+
+            <div class="col-xs-6 col-sm-6" ng-class="{ 'has-error': myForm.email.$dirty && myForm.email.$error.required }">
                 <label>Email: </label>
-                <input type="email" class="form-control" ng-model="signup.email" name="uPassword" required="">
+                <input type="email" class="form-control" ng-model="signup.email" name="email" ng-model-options="{updateOn:'blur'}" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required />
+                <span ng-show="myForm.email.$error.required && myForm.email.$dirty">required</span>
+                <span ng-show="!myForm.email.$error.required && myForm.email.$dirty && myForm.email.$error.pattern">That does not look like a valid email id</span>
             </div>
+
             <div class="clearfix hidden-sm-up"></div>
-            <div class="col-xs-6 col-sm-6">
-                <label>Password: </label>
-                <input type="text" class="form-control" ng-model="signup.password" name="uEmail" required="">
+
+            <div class="col-xs-6 col-sm-6" ng-class="{ 'has-error': myForm.username.$dirty && myForm.username.$error.required }">
+                <label>Username: </label>
+                <input type="text" class="form-control" ng-model="signup.username" name="username" ng-minlength="5" ng-maxlength="20" ng-pattern="/^[A-z][A-z0-9]*$/" ng-model-options="{updateOn:'blur'}" required />
+                <span ng-show="myForm.username.$error.required && myForm.username.$dirty">required</span>
+                <span ng-show="!myForm.username.$error.minLength && !myForm.username.$error.maxLength && myForm.username.$error.pattern && myForm.username.$dirty">Must start with a letter, and contain letters &amp; numbers only.</span>
+                <span ng-show="!myForm.username.$error.required && (myForm.username.$error.minlength || myForm.username.$error.maxlength) && myForm.username.$dirty">Username must be between 5 and 20 characters.</span>
             </div>
+
+            <div class="clearfix hidden-sm-up"></div>
+
+            <div class="col-xs-6 col-sm-6" ng-class="{ 'has-error': myForm.password.$dirty && myForm.password.$error.required }">
+                <label>Password: </label>
+                <input type="password" class="form-control" ng-model="signup.password" name="password" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" ng-model-options="{updateOn:'blur'}" required />
+                <span ng-show="myForm.password.$error.required && myForm.password.$dirty">required</span>
+                <span ng-show="!myForm.password.$error.required && (myForm.password.$error.minlength || myForm.password.$error.maxlength) && myForm.password.$dirty">Passwords must be between 8 and 20 characters.</span>
+                <span ng-show="!myForm.password.$error.required && !myForm.password.$error.minlength && !myForm.password.$error.maxlength && myForm.password.$error.pattern && myForm.password.$dirty">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
+            </div>
+
+            <div class="col-xs-6 col-sm-6" ng-class="{ 'has-error': myForm.repassword.$dirty && myForm.repassword.$error.required }" ng-class="{ 'has-error': !myForm.repassword.$error.required && myForm.password.$dirty && myForm.repassword.$error.noMatch }">
+                <label>Confirm your password: </label>
+                <input type="password" class="form-control" ng-model="signup.repassword" name="repassword" ng-model-options="{updateOn:'blur'}" match-password required />
+                <span ng-show="myForm.repassword.$error.required && myForm.repassword.$dirty">Please reenter your password</span>
+                <span ng-show="!myForm.repassword.$error.required && myForm.password.$dirty && myForm.repassword.$error.noMatch">Password do not match.</span>
+            </div>
+
+            <!-- <pre>{{ myForm.repassword.$error.required }}</pre>
+            <pre>{{ myForm.repassword.$dirty }}</pre> -->
         </form>
     </div>
 </div>

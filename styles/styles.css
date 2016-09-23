@@ -99,7 +99,10 @@ input:focus {
 }
 
 
-/*ANGULAR JS ng-Class*/
+/*ANGULAR JS */
+
+
+/*ng-Class*/
 
 .has-error {
     color: red;
